@@ -191,8 +191,11 @@ docker build -t chatgpt-web .
 # 前台运行
 docker run --name chatgpt-web --rm -it -p 127.0.0.1:3002:3002 --env OPENAI_API_KEY=your_api_key chatgpt-web
 
+docker run --name chatgpt-web --rm -it -p 3002:3002 --env HTTPS_PROXY="http://127.0.0.1:10809" --env OPENAI_API_KEY="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" chatgpt-web
+
 # 后台运行
-docker run --name chatgpt-web -d -p 127.0.0.1:3002:3002 --env OPENAI_API_KEY=your_api_key chatgpt-web
+docker run --name chatgpt-web -d -p 3002:3002 --env OPENAI_API_KEY=your_api_key chatgpt-web
+docker run --name chatgpt-web -d -p 3002:3002 --env HTTPS_PROXY="http://127.0.0.1:10809"  --env  OPENAI_API_KEY="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" chatgpt-web
 
 # 运行地址
 http://localhost:3002/
